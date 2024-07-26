@@ -8,4 +8,32 @@
   html {
     font-family: "Poppins", sans-serif;
   }
+  .wave,
+  .wave-bottom {
+    position: absolute;
+    top: -14px;
+    left: 0;
+    right: 0;
+    display: block;
+    height: 15px;
+    background: url(src/assets/wave_single.svg) repeat-x;
+    background-size: 60px 60px;
+    background-position: 0 0;
+    animation: blart 30s linear infinite;
+  }
+
+  @keyframes blart {
+    0% {
+      background-position: 0px 0;
+    }
+    100% {
+      background-position: 720px 0px;
+    }
+  }
+  .wave-bottom {
+    transform: scaleY(-1);
+    top: unset;
+    bottom: -14px;
+    animation: blart 30s linear infinite;
+  }
 }

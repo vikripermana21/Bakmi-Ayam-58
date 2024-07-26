@@ -3,6 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { routes } from "./constants";
 import Layout from "./components/Layout";
 
+// Import Swiper styles
+import "swiper/css";
+
 export default function App() {
   return (
     <BrowserRouter>

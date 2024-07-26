@@ -8,7 +8,7 @@ import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 const Layout = ({ children }) => {
   return (
     <div>
-      <div className="fixed w-full flex justify-between py-5 px-10 border-b-primary border-b-2 text-primary bg-secondary z-50">
+      <div className="fixed w-full flex justify-between py-5 px-10 border-b-2 border-b-primary text-primary bg-secondary z-40">
         <div className="flex items-center gap-3">
           <img src={Logo} />
           <span className="w-1 h-full bg-primary" />
@@ -17,7 +17,12 @@ const Layout = ({ children }) => {
         <div className="flex gap-10 items-center">
           {routes.map((item, key) => (
             <div key={key}>
-              <Link to={item.path}>{item.name}</Link>
+              <Link
+                to={item.path}
+                className="px-2 py-1 rounded-full hover:bg-[#96E5A0] transition-all"
+              >
+                {item.name}
+              </Link>
             </div>
           ))}
         </div>

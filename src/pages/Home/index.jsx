@@ -2,8 +2,36 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import HeroImage from "src/assets/hero-image.svg";
 import HeroImage2 from "src/assets/hero-image-2.svg";
 import HeroPattern from "src/assets/hero-pattern.svg";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import { useMemo } from "react";
 
 const Home = () => {
+  const swiper = useSwiper();
+
+  const review = useMemo(() => [
+    {
+      message:
+        "Mienya unik, warnanya hitam, teksturnya enak kenyal. Topping ayamnya juga enak, saya suka yang ayam jamur. Pangsitnya juga enak. Pelayanannya cepet",
+      reviewer: "Anggoro Prasetyo Utomo",
+    },
+    {
+      message:
+        "Cocok buat sarapan sehabis jalan, Mie ayam rica enak dengan ditutup sama roti bakar yang renyah dan kopi hitam, Outdoornya enak dan nyaman.",
+      reviewer: "Benny Arisusanto",
+    },
+    {
+      message:
+        "Bakminya guring kuah baso nya juga guring passlah👍. Coba datang ke cabang nya jl dalam kaum tempatnya luas mantap sama bangunan vitagen ya pas banget enak kalau suasana malam buat nongkrong diluar",
+      reviewer: "Bagong Balap",
+    },
+    {
+      message:
+        "Udah enam kali makan disini, rasa bakmienya tuh enak, kenyal, wangi dan porsi bakmienya tuh lumayan banyak. terus pelayanannya juga cepet lagi. Paling enak sih Bakmie kalong rica-rica😍",
+      reviewer: "Ghania Salsabila",
+    },
+  ]);
+
   return (
     <>
       <div className="pt-24 px-10">
@@ -13,7 +41,7 @@ const Home = () => {
             className="absolute top-10 left-20 z-0 scale-125"
           />
           <div className="flex flex-col flex-1 gap-5">
-            <p className="font-title text-8xl font-bold text-primary">
+            <p className="font-title text-7xl font-bold text-primary z-20">
               Makan <br />
               Bakmie Ayam 58 <br />
               Biar{" "}
@@ -28,7 +56,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="w-full min-h-[70vh] bg-review bg-cover p-10 flex items-center">
+      <div className="w-full bg-review bg-primary p-10 flex items-center relative">
+        <div className="wave"></div>
+        <div className="wave-bottom"></div>
         <div className="w-full flex flex-col gap-10 items-center justify-center text-white">
           <div className="flex gap-5">
             <IoChatbubblesOutline className="text-3xl scale-x-[-1]" />
@@ -37,14 +67,25 @@ const Home = () => {
             </p>
             <IoChatbubblesOutline className="text-3xl" />
           </div>
-          <p className="text-2xl text-secondary text-center max-w-3xl">
-            “Mienya unik, warnanya hitam, teksturnya enak kenyal. Topping
-            ayamnya juga enak, saya suka yang ayam jamur. Pangsitnya juga enak.
-            Pelayanannya cepet”
-          </p>
-          <p className="text-secondary font-semibold text-2xl">
-            ~ Anggoro Prasetyo Utomo | On Google Reviews ~
-          </p>
+          <div className="w-full">
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={50}
+              slidesPerView={1}
+              onSlideChange={() => console.log("slide change")}
+              onSwiper={(swiper) => console.log(swiper)}
+              autoplay
+            >
+              {review.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <ReviewSection
+                    message={item?.message}
+                    reviewer={item?.reviewer}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </div>
       <div className="grid grid-cols-2 px-10 py-20">
@@ -72,6 +113,18 @@ const Home = () => {
         </div>
       </div>
     </>
+  );
+};
+
+// eslint-disable-next-line react/prop-types
+const ReviewSection = ({ message, reviewer }) => {
+  return (
+    <div className="flex flex-col items-center text-center gap-5">
+      <p className="text-2xl max-w-[40rem]">“{message}”</p>
+      <p className="font-semibold text-2xl">
+        ~ {reviewer} | On Google Reviews ~
+      </p>
+    </div>
   );
 };
 

@@ -11,11 +11,7 @@ export default {
       white: "#FFFFFF",
       black: "#2D2D2D",
     },
-    extend: {
-      backgroundImage: {
-        review: "url('src/assets/review-background.svg')",
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
