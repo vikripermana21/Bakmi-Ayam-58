@@ -4,10 +4,27 @@ import { routes } from "../../constants";
 import Logo from "../../assets/logo.svg";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { motion as m } from "framer-motion";
+import { useEffect } from "react";
 
 const Layout = ({ children }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div>
+      <m.div
+        initial={{ height: "100vh" }}
+        animate={{ height: 0 }}
+        exit={{ height: "100vh" }}
+        transition={{ ease: "easeInOut", duration: 1 }}
+        className="w-screen h-screen bg-primary fixed origin-bottom z-50 flex flex-col justify-center items-center"
+      >
+        <p className="font-title text-6xl text-secondary font-bold">
+          BAKMIE AYAM 58
+        </p>
+        <div className="wave-line"></div>
+      </m.div>
       <div className="fixed w-full flex justify-between py-5 px-10 border-b-2 border-b-primary text-primary bg-secondary z-40">
         <div className="flex items-center gap-3">
           <img src={Logo} />

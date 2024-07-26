@@ -1,14 +1,15 @@
-import { IoChatbubblesOutline } from "react-icons/io5";
-import HeroImage from "src/assets/hero-image.svg";
-import HeroImage2 from "src/assets/hero-image-2.svg";
-import HeroPattern from "src/assets/hero-pattern.svg";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import { useMemo } from "react";
+import { IoChatbubblesOutline } from "react-icons/io5";
+import HeroImage2 from "src/assets/hero-image-2.svg";
+import HeroImage from "src/assets/hero-image.svg";
+import HeroPattern from "src/assets/hero-pattern.svg";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { motion as m } from "framer-motion";
+import FadeInWhileInView from "src/components/FadeInWhileInView";
+import Layout from "src/components/Layout";
 
 const Home = () => {
-  const swiper = useSwiper();
-
   const review = useMemo(() => [
     {
       message:
@@ -33,7 +34,7 @@ const Home = () => {
   ]);
 
   return (
-    <>
+    <Layout>
       <div className="pt-24 px-10">
         <div className="flex items-center py-24 relative">
           <img
@@ -41,19 +42,35 @@ const Home = () => {
             className="absolute top-10 left-20 z-0 scale-125"
           />
           <div className="flex flex-col flex-1 gap-5">
-            <p className="font-title text-7xl font-bold text-primary z-20">
+            <m.p
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              className="font-title text-7xl font-bold text-primary z-20"
+            >
               Makan <br />
               Bakmie Ayam 58 <br />
               Biar{" "}
               <span className="bg-primary text-secondary p-1">
                 #selalumapan
               </span>
-            </p>
-            <p className="text-4xl text-primary">NO PORK, NO LARD, NO ANGCIU</p>
+            </m.p>
+            <m.p
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5 }}
+              className="text-4xl text-primary"
+            >
+              NO PORK, NO LARD, NO ANGCIU
+            </m.p>
           </div>
-          <div>
+          <m.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 0.5 }}
+          >
             <img src={HeroImage} />
-          </div>
+          </m.div>
         </div>
       </div>
       <div className="w-full bg-review bg-primary p-10 flex items-center relative">
@@ -72,8 +89,6 @@ const Home = () => {
               modules={[Autoplay]}
               spaceBetween={50}
               slidesPerView={1}
-              onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
               autoplay
             >
               {review.map((item, index) => (
@@ -93,26 +108,35 @@ const Home = () => {
           <img src={HeroImage2} />
         </div>
         <div className="flex-1 flex flex-col gap-5 justify-center">
-          <p className="font-title text-6xl text-primary font-bold">
-            Nikmati pagi yang Lebih seru dengan Bakmie Ayam 58!
-          </p>
-          <p className="text-primary text-lg">
-            Tahu nggak sih, apa yang bikin hari kamu jadi lebih asik? Bakmie!
-            Dan kalau bakmie-nya itu buatan rumahan, halal, dan punya rasa khas
-            yang bikin lidah bergoyang, pagi kamu pasti bakal makin cerah!
-          </p>
-          <p className="text-primary text-lg">
-            Siap dalam hitungan menit, Bakmie Ayam 58 jadi santapan yang cepat,
-            aman, dan pastinya nikmat banget buat kamu yang aktif dan selalu
-            on-the-go.
-          </p>
-          <p className="text-primary text-lg">
-            Yuk, cobain Bakmie Ayam 58 dan rasakan sensasi lezatnya warisan cita
-            rasa yang nggak ada duanya.
-          </p>
+          <FadeInWhileInView>
+            <p className="font-title text-6xl text-primary font-bold">
+              Nikmati pagi yang Lebih seru dengan Bakmie Ayam 58!
+            </p>
+          </FadeInWhileInView>
+          <FadeInWhileInView>
+            <p className="text-primary text-lg">
+              Tahu nggak sih, apa yang bikin hari kamu jadi lebih asik? Bakmie!
+              Dan kalau bakmie-nya itu buatan rumahan, halal, dan punya rasa
+              khas yang bikin lidah bergoyang, pagi kamu pasti bakal makin
+              cerah!
+            </p>
+          </FadeInWhileInView>
+          <FadeInWhileInView>
+            <p className="text-primary text-lg">
+              Siap dalam hitungan menit, Bakmie Ayam 58 jadi santapan yang
+              cepat, aman, dan pastinya nikmat banget buat kamu yang aktif dan
+              selalu on-the-go.
+            </p>
+          </FadeInWhileInView>
+          <FadeInWhileInView>
+            <p className="text-primary text-lg">
+              Yuk, cobain Bakmie Ayam 58 dan rasakan sensasi lezatnya warisan
+              cita rasa yang nggak ada duanya.
+            </p>
+          </FadeInWhileInView>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

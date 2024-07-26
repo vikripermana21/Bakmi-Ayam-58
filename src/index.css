@@ -21,6 +21,21 @@
     background-position: 0 0;
     animation: blart 30s linear infinite;
   }
+  .wave-bottom {
+    transform: scaleY(-1);
+    top: unset;
+    bottom: -14px;
+    animation: blart 30s linear infinite;
+  }
+  .wave-line {
+    position: relative;
+    cursor: pointer;
+    width: 30%;
+    height: 45px;
+    background: url(src/assets/svg_wave_line.svg) repeat-x center center;
+    background-size: 20px 15px;
+    animation: shart 50s linear infinite;
+  }
 
   @keyframes blart {
     0% {
@@ -30,10 +45,13 @@
       background-position: 720px 0px;
     }
   }
-  .wave-bottom {
-    transform: scaleY(-1);
-    top: unset;
-    bottom: -14px;
-    animation: blart 30s linear infinite;
+
+  @keyframes shart {
+    0% {
+      background-position: 0 18px;
+    }
+    100% {
+      background-position: 600px 18px;
+    }
   }
 }
