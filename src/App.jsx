@@ -1,30 +1,21 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import { routes } from "./constants";
-import Layout from "./components/Layout";
 
 // Import Swiper styles
 import "swiper/css";
+import { AnimatePresence } from "framer-motion";
 
 export default function App() {
+  const location = useLocation();
   return (
-    <BrowserRouter>
-      <Routes>
+    <AnimatePresence mode="wait">
+      <Routes key={location.pathname} location={location}>
         {routes.map((route, key) => {
           const { component: Component } = route;
-          return (
-            <Route
-              key={key}
-              path={route.path}
-              element={
-                <Layout>
-                  <Component />
-                </Layout>
-              }
-            />
-          );
+          return <Route key={key} path={route.path} element={<Component />} />;
         })}
       </Routes>
-    </BrowserRouter>
+    </AnimatePresence>
   );
 }
