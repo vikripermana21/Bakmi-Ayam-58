@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
         </div>
       </div>
       <div className="bg-secondary">{children}</div>
-      <div className="w-full py-5 px-10 bg-black grid grid-cols-2 text-white">
+      <div className="w-full py-5 px-10 bg-black grid grid-cols-2 text-white relative z-20">
         <div className="flex flex-col gap-5">
           <p className="font-title font-semibold text-2xl uppercase">
             Bakmie Ayam 58
