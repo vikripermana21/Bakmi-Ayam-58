@@ -4,6 +4,7 @@ import GoFood from "src/assets/gofood.svg";
 import GrabFood from "src/assets/grabfood.svg";
 import { FaClock } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Merchants = () => {
   const [selected, setSelected] = useState(false);
@@ -36,25 +37,25 @@ const Merchants = () => {
             </div>
             <div className="flex flex-col max-w-[30rem] justify-center">
               <div className="border-b-2 border-primary">
-                <p className="text-primary font-title text-4xl font-semibold">
+                <p className="text-primary font-title text-2xl xl:text-4xl font-semibold">
                   Temukan Bakmie Ayam 58
                 </p>
               </div>
               <div className="flex flex-col gap-5 p-5 border-b-2 border-primary">
-                <p className="font-semibold text-primary">
+                <p className="font-semibold text-primary text-sm xl:text-base">
                   Bakmi Ayam 58 - Teuku Umar
                 </p>
-                <p className="text-primary">
+                <p className="text-primary text-xs xl:text-base">
                   Jl. Teuku Umar No.4/60, RT.01/ RW.10, Lebakgede, Kecamatan
                   Coblong, Kota Bandung, Jawa Barat 40132
                 </p>
-                <div className="flex gap-5 text-primary items-center">
-                  <FaClock className="text-xl" />
+                <div className="flex gap-5 text-primary items-center text-xs">
+                  <FaClock />
                   <p>10:00 - 21:00 WIB</p>
                 </div>
                 <div className="flex w-full justify-end">
                   <button
-                    className="px-2 py-1 bg-primary text-secondary"
+                    className="px-2 py-1 bg-primary text-secondary text-xs xl:text-base"
                     onClick={() => setSelected(false)}
                   >
                     Arah
@@ -62,20 +63,20 @@ const Merchants = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-5 p-5 ">
-                <p className="font-semibold text-primary">
+                <p className="font-semibold text-primary text-sm xl:text-base">
                   Bakmi Ayam 58 - Dalem Kaum
                 </p>
-                <p className="text-primary">
+                <p className="text-primary text-xs xl:text-base">
                   Jl. Dalem Kaum No.114, Balonggede, Kec. Lengkong, Kota
                   Bandung, Jawa Barat 40261
                 </p>
-                <div className="flex gap-5 text-primary items-center">
-                  <FaClock className="text-xl" />
+                <div className="flex gap-5 text-primary items-center text-xs">
+                  <FaClock />
                   <p>10:00 - 21:00 WIB</p>
                 </div>
                 <div className="flex w-full justify-end">
                   <button
-                    className="px-2 py-1 bg-primary text-secondary"
+                    className="px-2 py-1 bg-primary text-secondary text-xs xl:text-basetext-xs xl:text-base"
                     onClick={() => setSelected(true)}
                   >
                     Arah
@@ -90,18 +91,22 @@ const Merchants = () => {
                 </div>
                 <div className="flex gap-3">
                   <div className="w-10 h-10">
+                    <Link to={"https://gofood.co.id/bandung/restaurant/bakmie-ayam-58-halal-teuku-umar-du-6805bbd2-d89c-4ec6-9988-b99ad819688a"} target="_blank">
                     <img
                       src={GoFood}
                       loading="lazy"
                       className="object-contain"
-                    />
+                      />
+                      </Link>
                   </div>
                   <div className="w-10 h-10">
+                    <Link to={"https://food.grab.com/id/en/restaurant/bakmie-ayam-58-lebak-gede-delivery/6-C4CCECBVSBTJBA?sourceID=20240725_142016_135DD39713524B7FB2ADDF0CB88C7CE2_MEXMPS"} target="_blank">
                     <img
                       src={GrabFood}
                       loading="lazy"
                       className="object-contain"
-                    />
+                      />
+                      </Link>
                   </div>
                 </div>
               </div>

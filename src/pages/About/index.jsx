@@ -27,11 +27,11 @@ const About = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ delay: 0.8 }}
-            className="font-title text-8xl font-bold text-primary"
+            className="font-title text-6xl xl:text-8xl font-bold text-primary"
           >
             Dari Dapur Keluarga ke Lidah Kota{" "}
           </m.p>
-          <div ref={scope} className="flex flex-col gap-5">
+          <div ref={scope} className="flex flex-col gap-5 text-xs xl:text-base">
             <p className="text-primary">
               Kawan Mapan! Pernah dengar cerita keren di balik Bakmie Ayam 58?
               Nih, kita spill sedikit ya!
@@ -65,7 +65,7 @@ const About = () => {
           exit={{ opacity: 0 }}
           transition={{ delay: 2 }}
         >
-          <img src={AboutImage} />
+          <img src={AboutImage} className="w-96 xl:w-auto" />
         </m.div>
       </div>
       <div className="w-full bg-review bg-primary p-10 flex flex-col items-center relative">
@@ -77,8 +77,8 @@ const About = () => {
           <div className="grid grid-cols-3 w-full">
             <div className="min-h-[400vh]">
               <div className="flex flex-col items-center text-white text-center gap-5 sticky top-60">
-                <img src={About3} alt="" />
-                <div className="flex flex-col">
+                <img src={About3} alt="" className="w-36 xl:w-auto" />
+                <div className="flex flex-col text-xs xl:text-base">
                   <p className="font-semibold">Tanpa air abu:</p>
                   <p className="max-w-52">
                     Jangan khawatir, Bakmie Ayam 58 nggak pake air abu, jadi
@@ -89,8 +89,8 @@ const About = () => {
             </div>
             <div className="min-h-[400vh] pt-[100vh]">
               <div className="flex flex-col items-center text-white text-center gap-5 sticky top-60">
-                <img src={About1} alt="" />
-                <div className="flex flex-col">
+                <img src={About1} alt="" className="w-36 xl:w-auto" />
+                <div className="flex flex-col text-xs xl:text-base">
                   <p className="font-semibold">Mie Kenyal dan Lembut:</p>
                   <p className="max-w-52">
                     Rahasianya ada di telur! Yup, bakmie kita pakai banyak
@@ -102,8 +102,8 @@ const About = () => {
             </div>
             <div className="min-h-[400vh] pt-[200vh]">
               <div className="flex flex-col items-center text-white text-center gap-5 sticky top-60">
-                <img src={About2} alt="" />
-                <div className="flex flex-col">
+                <img src={About2} alt="" className="w-36 xl:w-auto" />
+                <div className="flex flex-col text-xs xl:text-base">
                   <p className="font-semibold">Cepat Saji:</p>
                   <p className="max-w-52">
                     Waktu kamu berharga, jadi bakmie kita cuma butuh 2 menit
